@@ -17,10 +17,8 @@ services:
   heading: BioTech
   icon: "/uploads/2017/11/13/biotech.png"
 sub_heading: Engineering and Health Sciences
-textline: | 
-  Belkirk College of Engineering
-  
-  Ora et Labora
+textline: |
+  Hi Viet hw are you
 hero_button:
   text: Learn more
   href: "/about"
