@@ -1,19 +1,46 @@
-<!doctype html>
-<html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <meta name="description" content="{% if .page.description %}{{ .page.description }}{% else %}{{ .site.description }}{% endif %}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="{{ "/img/favicon.png" | absolute_url }}"/>
-  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  <!--<![endif]-->
-  <link rel="stylesheet" href="{{ "/css/main.min.css" | absolute_url }}">
+     {% if page.url == "/" %}
+     <style type="text/css">
+         @-webkit-keyframes fadeIn {
+
+           0% { opacity: 0; }
+           20% { opacity: 0; }
+           40% { opacity: 0.3; }
+           60% { opacity: 0.5; }
+           80% { opacity: 0.9; }
+           100% { opacity: 1; }
+
+        }
+
+         #no-fouc {
+
+             opacity: 0;
+
+             -webkit-animation-name: fadeIn;
+             -webkit-animation-duration: 0.5s;
+             animation-iteration-count: 1;
+             animation-name: fadeIn;
+             animation-duration: 0.5s;
+             opacity: 1;
+
+        }
+     </style>
+     {% endif %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
+
+
+
+	<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/mainTools.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+   <!-- Latest compiled and minified CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+ </script>
+
+
+ {% include analytics.html %}
 </head>
-<body>

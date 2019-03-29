@@ -1,33 +1,32 @@
-title: Belkirk College of Engineering
-short_title: Belkirk
-description: Belkirk Demo Site for Forestry.io
-baseurl:
-permalink: "/:path/"
+# Site settings
+title: My - Danang Easy Rider
+email: mistermyvietnam@gmail.com
+description: >
+  Still wonder how to discover the amazing and the true Vietnam? You can surely find the answer with Mr. My. Having been a Tour Guide and Easy-rider for
+  almost 20 years, not only can he bring to you thrilling and exciting experiences in the nature
+  and local places, but he is also humorous, reliable, enthusiastic and responsible.
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://mydanangeasyrider.com" # the base hostname & protocol for your site
+
+
+# Build settings
+markdown: kramdown
+timezone: Europe/Vienna
+encoding: utf-8
+
 defaults:
-  - scope:
-      path: ""
-    values:
-      layout: page
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-collections:
-  people:
-    output: true
-    permalink: "/about/:path/"
-  posts:
-    output: true
-  projects:
-    output: true
-    permalink: "/projects/:path/"
-# tag_page_layout: tag_page
-# tag_page_dir: tag
-jekyll-archives:
-  enabled: all
-  layout: "archive"
-gems:
-  - jekyll-menus
-  - jekyll-feed
-  - jekyll-archives
+ -
+   scope:
+     path: ""
+   values:
+     layout: "default"
+
+sass:
+  sass_dir: css
+
+plugins:
+  - jekyll-redirect-from
+
+# Google Analytics Code
+google_analytics: UA-137235498-1
