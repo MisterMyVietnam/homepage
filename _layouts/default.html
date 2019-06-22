@@ -5,13 +5,60 @@
 
 {% include head.html %}
 
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
 
-<header>
 
 
-</header>
+  <div class="navigation-container">
+    <div class="navigation-Sub-Container">
+        <div class="nav-element"><a href="#">Home</a></div>
+        <div class="nav-element"><a href="#">Tours</a></div>
+        <div class="nav-element"><a href="#">About My</a></div>
+        <div class="nav-element"><a href="#">Contact</a></div>
+   </div>
+ </div>
 
   <body>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{{site.baseurl}}/js/modal.js" async></script>
+
+    <script type="text/javascript">
+
+
+    // scrollBanner
+
+    function scrollBanner(config) {
+
+    	scrollPos = $(this).scrollTop();
+
+    	config.bannerText.css({
+    		'margin-top' : -(scrollPos/2 + 100) + "px",
+    		'opacity' : 1-(scrollPos/300)
+    	});
+
+    	config.banner.css({
+    		'background-position': 'center ' + (-scrollPos/4) + "px"
+    	});
+
+    }
+
+    $(document).ready(function(){
+
+    	$(window).scroll(function() {
+
+    		scrollBanner({
+    			banner: $('.banner'),
+    			bannerText: $('.banner-text')
+    		});
+
+    	});
+
+    });
+    </script>
 
   </body>
 
@@ -22,6 +69,12 @@
 
           {{ content }}
 
+          <!-- Modal for Images -->
+          <div id="myModal" class="modal">
+
+            <img class="modal-content-Custom" id="img01">
+            <div id="caption"></div>
+          </div>
 
       </main>
 

@@ -1,0 +1,136 @@
+---
+---
+
+$widthLevelZero: 410px;
+$widthLevelOneLower: 411px;
+$widthLevelOneHigher: 767px;
+$widthLevelTwoLower: 768px;
+$widthLevelTwoHigher: 989px;
+$widthLevelThreeLower: 990px;
+$widthLevelThreeHigher: 1199px;
+$widthLevelFour: 1199px;
+$widthLevelFive: 1600px;
+
+@mixin widthLevel00 {
+  @media (max-width: $widthLevelZero) { @content; }
+}
+
+@mixin widthLevel01 {
+  @media (min-width:$widthLevelOneLower) and (max-width:$widthLevelOneHigher)  { @content; }
+}
+
+@mixin widthLevel02 {
+  @media (min-width:$widthLevelTwoLower) and (max-width:$widthLevelTwoHigher) { @content; }
+}
+@mixin widthLevel03 {
+  @media (min-width:$widthLevelThreeLower) and (max-width:$widthLevelThreeHigher) { @content; }
+}
+
+@mixin widthLevel04 {
+  @media (min-width: $widthLevelFour) { @content; }
+}
+
+@mixin widthLevel05 {
+  @media (min-width: $widthLevelFive) { @content; }
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  @include widthLevel00 {padding-top: 70px;}
+  @include widthLevel01 {padding-top: 100px;}
+  @include widthLevel02 {padding-top: 170px;}
+  @include widthLevel03 {padding-top: 170px;}
+  @include widthLevel04 {padding-top: 170px;}
+  @include widthLevel05 {padding-top: 170px;}
+
+}
+
+/* Modal Content (image) */
+.modal-content-Custom {
+  margin: auto;
+  display: block !important;
+  //width: 50% !important;
+  max-height: 75vh !important;
+  max-width: 90% !important;
+
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content-Custom {
+    width: 100%;
+  }
+}
+
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content-Custom, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.closeCustom {
+  position: absolute;
+
+  @include widthLevel00 {display: none !important;}
+  @include widthLevel01 {display: none !important;}
+  @include widthLevel02 {margin-top: 75px;}
+  @include widthLevel03 {margin-top: 75px;}
+  @include widthLevel04 {margin-top: 75px;}
+  @include widthLevel05 {margin-top: 75px;}
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.closeCustom:hover,
+.closeCustom:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}

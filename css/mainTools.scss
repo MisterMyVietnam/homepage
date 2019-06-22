@@ -3,66 +3,223 @@
 ---
 
 @import url(https://fonts.googleapis.com/css?family=Karla);
+@import url(https://fonts.googleapis.com/css?family=Caveat&display=swap);
+
+html {
+  overflow-x: hidden;
+}
 
 body {
    font-family: 'Karla', sans-serif;
    -webkit-font-smoothing: antialiased;
 	 -moz-osx-font-smoothing: grayscale;
+   margin: 0 !important;
+   padding: 0 !important;
 }
 
-$screenZero: 410px;
-$screenOneLower: 411px;
-$screenOneHigher: 767px;
-$screenTwoLower: 768px;
-$screenTwoHigher: 1199px;
-$screenThree: 1199px;
 
-@mixin screen00 {
-  @media (max-width: $screenZero) { @content; }
-}
-
-@mixin screen01 {
-  @media (min-width:$screenOneLower) and (max-width:$screenOneHigher)  { @content; }
-}
-
-@mixin screen02 {
-  @media (min-width:$screenTwoLower) and (max-width:$screenTwoHigher) { @content; }
-}
-
-@mixin screen03 {
-  @media (min-width: $screenThree) { @content; }
-}
-
-$h1: 20px;
-$h2: 18px;
-$h3: 16px;
-$h4: 14px;
-
-h1 {
-  @include screen00 {font-size: 32px; line-height: 1.25em;padding-top: $h1;padding-bottom: $h1;}
-  @include screen01 {font-size: 32px; line-height: 1.25em;padding-top: $h1;padding-bottom: $h1;}
-  @include screen02 {font-size: 40px; line-height: 1.125;padding-top: $h1;padding-bottom: $h1;}
-  @include screen03 {font-size: 48px; line-height: 1.05em;padding-top: $h1;padding-bottom: $h1;}
+@font-face {
+	font-family: 'olive';
+	src: url('../webfonts/BlackOlives.ttf');
 
 }
+
+$headerColor: #282828;
+$subHeaderColor: #0B5351;
+
+$widthLevelZero: 410px;
+$widthLevelOneLower: 411px;
+$widthLevelOneHigher: 767px;
+$widthLevelTwoLower: 768px;
+$widthLevelTwoHigher: 989px;
+$widthLevelThreeLower: 990px;
+$widthLevelThreeHigher: 1199px;
+$widthLevelFour: 1199px;
+$widthLevelFive: 1600px;
+
+@mixin widthLevel00 {
+  @media (max-width: $widthLevelZero) { @content; }
+}
+
+@mixin widthLevel01 {
+  @media (min-width:$widthLevelOneLower) and (max-width:$widthLevelOneHigher)  { @content; }
+}
+
+@mixin widthLevel02 {
+  @media (min-width:$widthLevelTwoLower) and (max-width:$widthLevelTwoHigher) { @content; }
+}
+@mixin widthLevel03 {
+  @media (min-width:$widthLevelThreeLower) and (max-width:$widthLevelThreeHigher) { @content; }
+}
+
+@mixin widthLevel04 {
+  @media (min-width: $widthLevelFour) { @content; }
+}
+
+@mixin widthLevel05 {
+  @media (min-width: $widthLevelFive) { @content; }
+}
+
+
+/*---------- VARIABLES ----------*/
+
+$font-family: 'Lato';
+$font-family-fallback: sans-serif;
+$font-size: 1em;
+$font-weight: 300;
+
+$line-height: 1.5em;
+
+$amount: 10%;
+
+$grid-container: 940px;
+
+/*---------- COLORS ----------*/
+
+$color: #5b5b5b;
+$color-bg: #fff;
+
+$color-link: #3498db;
+$color-link-hover: darken($color-link, $amount);
+
+/*---------- GENERAL ----------*/
+
+body {
+  background: $color-bg;
+	color: $color;
+  font: $font-weight #{$font-size}/#{$line-height} $font-family, $font-family-fallback;
+	margin: 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
+}
+
+article {
+  display: block;
+}
+
 h2 {
-  @include screen00 {font-size: 26px; line-height: 1.15384615em;padding-top: $h2;padding-bottom: $h2;}
-  @include screen01 {font-size: 26px; line-height: 1.15384615em;padding-top: $h2;padding-bottom: $h2;}
-  @include screen02 {font-size: 32px; line-height: 1.25em;padding-top: $h2;padding-bottom: $h2;}
-  @include screen03 {font-size: 36px; line-height: 1.25em;padding-top: $h2;padding-bottom: $h2;}
-
+  font-size: 2em;
+  line-height: 1.25em;
+  margin: 0 0 .25em 0;
 }
+
 h3 {
-  @include screen00 {font-size: 22px; line-height: 1.13636364em; padding-top: $h3;padding-bottom: $h3;}
-  @include screen01 {font-size: 22px; line-height: 1.25em; padding-top: $h3;padding-bottom: $h3;}
-  @include screen02 {font-size: 24px; line-height: 1.25em; padding-top: $h3;padding-bottom: $h3;}
-  @include screen03 {font-size: 28px; line-height: 1.25em; padding-top: $h3;padding-bottom: $h3;}
+  font-size: 1.5em;
+  line-height: 1.33em;
+  margin: 0 0 .33em 0;
+}
+
+h4 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 .5em 0;
+}
+
+p {
+  margin: 0 0 .5em 0;
+}
+
+/*---------- UTILITIES ----------*/
+
+.clearfix {
+	*zoom: 1;
+
+	&:before, &:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after { clear: both; }
 
 }
-h4 {
-  @include screen00 {font-size: 18px; line-height: 1.222em; padding-top: $h4;padding-bottom: $h4;}
-  @include screen01 {font-size: 18px; line-height: 1.222em; padding-top: $h4;padding-bottom: $h4;}
-  @include screen02 {font-size: 18px; line-height: 1.111em; padding-top: $h4;padding-bottom: $h4;}
-  @include screen03 {font-size: 18px; line-height: 1.111em; padding-top: $h4;padding-bottom: $h4;}
+
+/*---------- GRID ----------*/
+
+.container {
+	@extend .clearfix;
+	margin: 0 auto;
+	width: $grid-container;
+
+  @include widthLevel00 { min-width: 310px; width: 310px; max-width: 310px; min-height: 100px;}
+  @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px;}
+  @include widthLevel02 { min-width: 700px; width: 700px; max-width: 700px; min-height: 100px;}
+  @include widthLevel03 { min-width: 760px; width: 760px; max-width: 760px; min-height: 100px;}
+  @include widthLevel04 { min-width: 800px; width: 800px; max-width: 800px; min-height: 100px;}
+  @include widthLevel05 { min-width: 1200px ; width: 1200px ; max-width: 1200px ; min-height: 100px;}
+
+}
+
+/*---------- HEADER ----------*/
+
+.header {
+	padding: 1em 0;
+}
+
+/*---------- MAIN ----------*/
+
+.main {
+  margin-top: 3em;
+}
+
+
+/*---------- POSTS ----------*/
+
+.post {
+  margin-bottom: 2em;
+}
+
+.banner {
+
+	background: url(../img/Header2.jpg);
+  background-repeat: no-repeat;
+
+  background-size: contain;
+	min-height: 700px;
+	position: relative;
+	overflow: hidden;
+	width: 100vw !important;
+
+}
+
+
+.banner-text {
+  margin-top: -100px;
+  font-family: 'Caveat', cursive;
+  animation: timec 1s ease-in-out;
+  color: #fff;
+  font-size: 50px;
+
+  left: 0;
+  position: absolute;
+  top: 75%;
+  text-align: center;
+  text-shadow: 0 0px 4px rgba(0, 0, 0, .8);
+  width: 100%;
+}
+
+
+@keyframes timec {
+  0% {opacity: 0;transform: translateX(-100px);}
+  100% {opacity: 1;transform: translateX(0);}
+}
+
+
+
+.my-container-nav {
+
+  width: 100vw !important;
+  display: flex;
+  position: fixed;
+  min-height: 50px;
+  margin-top: 30px;
+  background-color: rgba(255,40,20,0.2);
 
 }
