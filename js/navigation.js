@@ -69,12 +69,7 @@ $(".slider-background").click(function(){
    });
 })(jQuery);
 
-function preventBehavior(e) {
-    e.preventDefault();
-};
 
-document.addEventListener("touchmove", preventBehavior, {passive: false});
-document.addEventListener("touchstart", preventBehavior, false);
 
 const rippleElements = document.getElementsByClassName("myRipple");
 
