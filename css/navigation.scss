@@ -1,9 +1,42 @@
 ---
 ---
 
+.shadowBox {
+
+    box-shadow: 5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
+    -moz-box-shadow:  5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
+    -webkit-box-shadow:  5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Caveat&display=swap);
+
+@mixin userSelect($select) {
+  user-select: $select;
+ -moz-user-select: $select;
+ -khtml-user-select: $select;
+ -webkit-user-select: $select;
+ -o-user-select: $select;
+}
+@mixin transitionAll($ms) {
+  -webkit-transition: all $ms ease;
+  -moz-transition: all $ms ease;
+  -ms-transition: all $ms ease;
+  -o-transition: all $ms ease;
+  transition: all $ms ease;
+}
+
+@mixin rotate($degrees) {
+  -moz-transform:rotate($degrees);
+  -webkit-transform:rotate($degrees);
+  -o-transform:rotate($degrees);
+  -ms-transform:rotate($degrees);
+}
+
+$dim-grey: #696969;
 $color-primary: rgba(0,0,0,0.5);
 $color-primary-hover: rgba(255, 255, 255, 1);
 $white-text: rgba(255, 255, 255, 1);
+$grey-text: #282828;
 $white-text-hover: rgba(20, 255, 200, 1);
 
 $widthLevelZero: 410px;
@@ -61,6 +94,7 @@ button {
 }
 
 .navigation-container {
+  @include widthLevel00 {display: none !important; }
   z-index: 999;
   min-width: 100vw;
   width: 100vw;
@@ -69,37 +103,58 @@ button {
   justify-content: center;
   flex-direction: row;
   background-color: rgba(0,0,0,0.2);
+  @include transitionAll(500ms);
+
+  &:hover {
+    background-color: rgba(0,0,0,0.4);
+  }
+  &.active {
+    background-color: rgba(0,0,0,0.4);
+  }
+
 }
 
-.navigation-Sub-Container {
+.navigation-sub-container {
 
   align-self: center;
-  min-height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 50px;
 
-  @include widthLevel00 { min-width: 310px; width: 310px; max-width: 310px; min-height: 100px; font-size: 20px;}
-  @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px; font-size: 20px;}
-  @include widthLevel02 { min-width: 700px; width: 700px; max-width: 700px; min-height: 100px; font-size: 20px;}
-  @include widthLevel03 { min-width: 760px; width: 760px; max-width: 760px; min-height: 100px; font-size: 20px;}
-  @include widthLevel04 { min-width: 800px; width: 800px; max-width: 800px; min-height: 100px; font-size: 20px;}
-  @include widthLevel05 { min-width: 1200px ; width: 1200px ; max-width: 1200px ; min-height: 100px; font-size: 36px;}
-
-}
-
-.nav-element {
-
-  @include widthLevel00 {  display: none !important; }
+  @include widthLevel00 { display: none !important; min-width: 310px; width: 310px; max-width: 310px; min-height: 100px;}
+  @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px;}
+  @include widthLevel02 { min-width: 700px; width: 700px; max-width: 700px; min-height: 100px;}
+  @include widthLevel03 { min-width: 760px; width: 760px; max-width: 760px; min-height: 100px;}
+  @include widthLevel04 { min-width: 800px; width: 800px; max-width: 800px; min-height: 100px;}
+  @include widthLevel05 { min-width:1200px;width: 1200px; max-width:1200px; min-height: 100px;}
 
 }
 
+.nav-element{
 
+  align-self: center;
+  font-weight: 600;
+  @include widthLevel00 {font-size: 20px;}
+  @include widthLevel01 {font-size: 16px; font-weight: 800}
+  @include widthLevel02 {font-size: 20px;}
+  @include widthLevel03 {font-size: 20px;}
+  @include widthLevel04 {font-size: 20px;}
+  @include widthLevel05 {font-size: 20px;}
+
+}
 
 .nav-element a {
-  margin: 10px;
-  transition: all 1s;
+
+  @include widthLevel00 {margin: 5px;}
+  @include widthLevel01 {margin: 5px;}
+  @include widthLevel02 {margin: 5px;}
+  @include widthLevel03 {margin: 10px;}
+  @include widthLevel04 {margin: 10px;}
+  @include widthLevel05 {margin: 10px;}
+
+
+  @include transitionAll(1000ms);
+  @include userSelect(none);
   &:hover {
     cursor: pointer;
     color: $color-primary-hover;
@@ -107,18 +162,14 @@ button {
 
   text-decoration: none;
   text-transform: uppercase;
-  color: $color-primary;
+  color: $white-text;
 
-  font-weight: 600;
+
   white-space: nowrap;
   text-align: center;
   justify-content: space-between;
 
-    user-select: none;
-   -moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -o-user-select: none;
+
 
   position: relative;
 
@@ -146,3 +197,248 @@ button {
 
 }
 }
+
+#rotate {
+  font-weight: bold;
+  color: $white-text;
+  display: inline-flex;
+  @include transitionAll(500ms);
+  @include userSelect(none);
+  &:hover {
+    color: $color-primary-hover;
+  }
+
+}
+
+#rotate.down{
+  @include rotate(90deg);
+}
+
+
+.navigation-tours-container {
+  @include widthLevel00 {display: none !important; }
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 998;
+
+  transition: height 1s cubic-bezier(0, 1, 0, 1);
+  width: 100vw;
+  min-width: 100vw;
+  margin-top: 100px;
+  height: 0px;
+  background-color: white;
+  &.active {
+    height: 100px;
+
+  }
+}
+
+
+.navigation-tours-sub-container {
+
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @include widthLevel00 {display: none !important; }
+  @include widthLevel00 { min-width: 310px; width: 310px; max-width: 310px; min-height: 100px;}
+  @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px;}
+  @include widthLevel02 { min-width: 700px; width: 700px; max-width: 700px; min-height: 100px;}
+  @include widthLevel03 { min-width: 760px; width: 760px; max-width: 760px; min-height: 100px;}
+  @include widthLevel04 { min-width: 800px; width: 800px; max-width: 800px; min-height: 100px;}
+  @include widthLevel05 { min-width:1200px;width: 1200px; max-width:1200px; min-height: 100px;}
+
+}
+
+
+.nav-tours-element {
+  @include transitionAll(100ms);
+
+  opacity: 0;
+
+  font-weight: 600;
+  align-self: center;
+  @include widthLevel00 {font-size: 14px;}
+  @include widthLevel01 {font-size: 14px;}
+  @include widthLevel02 {font-size: 18px;}
+  @include widthLevel03 {font-size: 18px;}
+  @include widthLevel04 {font-size: 18px;}
+  @include widthLevel05 {font-size: 18px;}
+
+  &.active {
+    display: inline;
+    opacity: 1;
+  }
+
+}
+
+.nav-tours-element a {
+
+  @include widthLevel00 {margin: 5px;}
+  @include widthLevel01 {margin: 5px;}
+  @include widthLevel02 {margin: 5px;}
+  @include widthLevel03 {margin: 10px;}
+  @include widthLevel04 {margin: 10px;}
+  @include widthLevel05 {margin: 10px;}
+
+
+  @include transitionAll(250ms);
+  @include userSelect(none);
+
+  &:hover {
+    cursor: pointer;
+    color: $dim-grey;
+
+  }
+
+  text-decoration: none;
+
+  color: $color-primary;
+  white-space: nowrap;
+  text-align: center;
+  justify-content: space-between;
+
+  position: relative;
+
+    &:visited {
+        color: $color-primary;
+    } // hover animation
+    &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+
+      }
+}
+
+.navigation-mobile-container {
+
+  //@extend .shadowBox;
+
+  // background-image: url("../img/navigation/RoadmapMobile.jpg");
+  // background-size: 100vw !important;
+  // background-repeat: no-repeat;
+
+  @include widthLevel00 {display: flex !important;}
+  @include widthLevel01 {display: none !important;}
+  @include widthLevel02 {display: none !important;}
+  @include widthLevel03 {display: none !important;}
+  @include widthLevel04 {display: none !important;}
+  @include widthLevel05 {display: none !important;}
+
+  z-index: 999;
+
+  min-height: 100px;
+  max-height: 100px;
+  position: fixed;
+  min-width: 100vw;
+  width: 100vw !important;
+  background-color: blue;
+  justify-content: flex-start;
+  flex-direction: row;
+
+}
+
+.nav-element-mobile {
+  font-family: 'Caveat', cursive;
+  font-size: 30px;
+  padding-left: 15px;
+  margin-top: -10px;
+  align-self: center;
+  color: $dim-grey;
+
+
+}
+
+
+.ripple{
+  position:absolute;
+  background:#fff;
+  border-radius:50%;
+  width:5px;
+  height:5px;
+  animation:rippleEffect .6s 1;
+  opacity:0;
+}
+
+@keyframes rippleEffect {
+  0% {transform:scale(1); opacity:0.4;}
+  100% {transform:scale(100); opacity:0;}
+}
+
+.item-burger {
+
+   top: 10px;
+   width: 55px;
+   height: 50px;
+   background: #fff;
+   margin: 5px;
+   padding: 5px;
+   box-shadow: 0 0 10px rgba(0,0,0,.1);
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   border-radius: 4px;
+   backface-visibility: hidden;
+   transition:0.5s;
+
+
+   span {
+      display: block;
+      background: darken(#7A8C51, 30%);
+      width: 40px;
+      height: 3px;
+      position: absolute;
+      left: 7px;
+      right: 7px;
+
+      &.top {
+         top: 12px;
+      }
+
+      &.middle {
+         top: 22px;
+      }
+
+      &.bottom {
+         top: 32px;
+      }
+   }
+}
+
+// A version
+
+.item-b{
+   span {
+      transition-property: all;
+      transition-duration: 0.2s;
+      transition-delay: 0;
+      transition-timing-function: cubic-bezier(.48,-0.28,.41,1.4);
+   }
+}
+
+.item-b.active {
+
+   span {
+      transition-property: all;
+      transition-duration: 0.2s;
+      transition-delay: 0;
+      transition-timing-function: cubic-bezier(.48,-0.28,.41,1.4);
+   }
+
+   .top {
+      transform: translateY(10px) rotate(45deg);
+   }
+
+   .middle {
+      opacity: 0;
+      transform: scale(0,0);
+   }
+
+   .bottom {
+      transform: translateY(-10px) rotate(-45deg);
+   }
+}
+
+.color-button{@extend .item-burger; background:white}
