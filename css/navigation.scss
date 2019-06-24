@@ -316,9 +316,9 @@ button {
 
   //@extend .shadowBox;
 
-  // background-image: url("../img/navigation/RoadmapMobile.jpg");
-  // background-size: 100vw !important;
-  // background-repeat: no-repeat;
+  background-image: url("../img/navigation/RoadmapMobile.jpg");
+  background-size: 100vw !important;
+  background-repeat: no-repeat;
 
   @include widthLevel00 {display: flex !important;}
   @include widthLevel01 {display: none !important;}
@@ -329,12 +329,14 @@ button {
 
   z-index: 999;
 
-  min-height: 100px;
-  max-height: 100px;
+  min-height: 80px;
+  max-height: 80px;
+
   position: fixed;
   min-width: 100vw;
+
   width: 100vw !important;
-  background-color: blue;
+
   justify-content: flex-start;
   flex-direction: row;
 
@@ -344,7 +346,7 @@ button {
   font-family: 'Caveat', cursive;
   font-size: 30px;
   padding-left: 15px;
-  margin-top: -10px;
+  margin-top: -7px;
   align-self: center;
   color: $dim-grey;
 
@@ -370,8 +372,9 @@ button {
 .item-burger {
 
    top: 10px;
-   width: 55px;
-   height: 50px;
+   left: 10px;
+   width: 40px;
+   height: 40px;
    background: #fff;
    margin: 5px;
    padding: 5px;
@@ -387,10 +390,10 @@ button {
    span {
       display: block;
       background: darken(#7A8C51, 30%);
-      width: 40px;
-      height: 3px;
+      width: 30px;
+      height: 5px;
       position: absolute;
-      left: 7px;
+      left: 10px;
       right: 7px;
 
       &.top {
