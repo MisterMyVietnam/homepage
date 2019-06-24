@@ -176,7 +176,7 @@ p {
 }
 
 .banner {
-
+  @include widthLevel00 {display: none;}
 	background: url(../img/Header2.jpg);
   background-repeat: no-repeat;
 

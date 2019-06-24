@@ -41,6 +41,18 @@ $("#tours").click(function(){
 });
 
 
+$("#initiate").click(function(){
+  $(".slider").toggleClass("active");
+  $(".slider-background").toggleClass("active");
+});
+
+$(".slider-background").click(function(){
+  $(".slider").toggleClass("active");
+  $(".slider-background").toggleClass("active");
+  $('.item-transition').toggleClass('active');
+});
+
+
 (function($) {
    $('.item-transition').on('click', function() {
       $(this).toggleClass('active');
@@ -56,7 +68,6 @@ $("#tours").click(function(){
       }
    });
 })(jQuery);
-
 
 const rippleElements = document.getElementsByClassName("myRipple");
 

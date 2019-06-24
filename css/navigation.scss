@@ -242,7 +242,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @include widthLevel00 {display: none !important; }
+  @include widthLevel00 { display: none !important; }
   @include widthLevel00 { min-width: 310px; width: 310px; max-width: 310px; min-height: 100px;}
   @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px;}
   @include widthLevel02 { min-width: 700px; width: 700px; max-width: 700px; min-height: 100px;}
@@ -445,3 +445,94 @@ button {
 }
 
 .color-button{@extend .item-burger; background:white}
+
+
+
+
+
+.slider{
+
+  z-index: 998;
+  transition: width 1s cubic-bezier(0, 1, 0, 1);
+  width: 0px;
+  position: fixed;
+  top: 80px;
+  min-height: 600px;
+  background-color: white;
+
+  //from qitascOrange
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: fixed !important;
+
+
+
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &.active {
+    width: 80vw;
+  }
+}
+
+.slider-sub-container {
+  padding: 20px;
+
+}
+
+.slider-nav-element-primary a {  font-size: 18px;}
+.slider-nav-element-secondary a { font-size: 16px; padding-left: 15px; }
+
+.slider-nav-element-primary a, .slider-nav-element-secondary a {
+
+  @include widthLevel00 {margin: 10px;}
+
+  font-weight: 600;
+
+  @include userSelect(none);
+
+  &:hover {
+    cursor: pointer;
+    color: $dim-grey;
+
+  }
+
+  text-decoration: none;
+
+  color: $color-primary;
+  white-space: nowrap;
+  text-align: center;
+  justify-content: space-between;
+
+  position: relative;
+
+    &:visited {
+        color: $color-primary;
+    } // hover animation
+    &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+
+    }
+}
+
+.slider-background {
+  background-color: rgba(0,0,0,0.4);
+  z-index: 997;
+  transition: width 1s cubic-bezier(0, 1, 0, 1);
+  width: 0px;
+
+  position: fixed !important;
+  top: 80px;
+  min-height: 600px;
+
+  &.active {
+    width: 100vw;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+}
