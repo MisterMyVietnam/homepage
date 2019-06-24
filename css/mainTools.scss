@@ -6,15 +6,23 @@
 @import url(https://fonts.googleapis.com/css?family=Caveat&display=swap);
 
 html {
-  overflow-x: hidden;
+  overflow: hidden ;
+  height: 100%;
 }
 
+
 body {
-   font-family: 'Karla', sans-serif;
-   -webkit-font-smoothing: antialiased;
-	 -moz-osx-font-smoothing: grayscale;
-   margin: 0 !important;
-   padding: 0 !important;
+
+    height: 100%;
+    overflow: auto;
+    overscroll-behavior-y: none;
+     font-family: 'Karla', sans-serif;
+     -webkit-font-smoothing: antialiased;
+  	 -moz-osx-font-smoothing: grayscale;
+     margin: 0 !important;
+     padding: 0 !important;
+
+
 }
 
 @font-face {

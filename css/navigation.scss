@@ -473,8 +473,27 @@ button {
   overflow-y: auto;
 
   &.active {
-    width: 80vw;
+    width: 70vw;
   }
+}
+
+.slider-background {
+  background-color: rgba(0,0,0,0.4);
+  z-index: 997;
+  transition: width 0.5s cubic-bezier(0, 1, 0, 1);
+  width: 0px;
+
+  position: fixed !important;
+  top: 80px;
+  min-height: 600px;
+
+  &.active {
+    width: 100vw;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
 }
 
 .slider-sub-container {
@@ -516,23 +535,4 @@ button {
         transform: scaleX(1);
 
     }
-}
-
-.slider-background {
-  background-color: rgba(0,0,0,0.4);
-  z-index: 997;
-  transition: width 1s cubic-bezier(0, 1, 0, 1);
-  width: 0px;
-
-  position: fixed !important;
-  top: 80px;
-  min-height: 600px;
-
-  &.active {
-    width: 100vw;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-
 }
