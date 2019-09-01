@@ -1,10 +1,10 @@
 $(window).on('load', function() { setTimeout(function(){},500);
 //
 
-if ( ($(window).width() > 320) ) {
+if ( ($(window).width() > 500) ) {
   var scroll_position_teaser_text = 0 - 508 - ( $(window).scrollTop() ) ;
 } else {
-  var scroll_position_teaser_text = 0 - 708 - ( $(window).scrollTop() ) ;
+  var scroll_position_teaser_text = 0 - 608 - ( $(window).scrollTop() ) ;
 }
   $('.teaser-text-container').css( "margin-top", scroll_position_teaser_text );
   $('.myPortrait').css( "opacity", "1" );
@@ -24,10 +24,10 @@ if ( ($(window).width() > 320) ) {
 
   $(window).scroll(function () {
 
-    if ( ($(window).width() > 320) ) {
+    if ( ($(window).width() > 500) ) {
       var scroll_position_teaser_text = 0 - 508 - ( $(window).scrollTop() ) ;
     } else {
-      var scroll_position_teaser_text = 0 - 708 - ( $(window).scrollTop() ) ;
+      var scroll_position_teaser_text = 0 - 608 - ( $(window).scrollTop() ) ;
     }
     $('.teaser-text-container').css( "margin-top", scroll_position_teaser_text );
 
