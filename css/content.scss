@@ -2,6 +2,39 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+$widthLevelZero: 410px;
+$widthLevelOneLower: 411px;
+$widthLevelOneHigher: 767px;
+$widthLevelTwoLower: 768px;
+$widthLevelTwoHigher: 989px;
+$widthLevelThreeLower: 990px;
+$widthLevelThreeHigher: 1199px;
+$widthLevelFour: 1199px;
+$widthLevelFive: 1600px;
+
+@mixin widthLevel00 {
+  @media (max-width: $widthLevelZero) { @content; }
+}
+
+@mixin widthLevel01 {
+  @media (min-width:$widthLevelOneLower) and (max-width:$widthLevelOneHigher)  { @content; }
+}
+
+@mixin widthLevel02 {
+  @media (min-width:$widthLevelTwoLower) and (max-width:$widthLevelTwoHigher) { @content; }
+}
+@mixin widthLevel03 {
+  @media (min-width:$widthLevelThreeLower) and (max-width:$widthLevelThreeHigher) { @content; }
+}
+
+@mixin widthLevel04 {
+  @media (min-width: $widthLevelFour) { @content; }
+}
+
+@mixin widthLevel05 {
+  @media (min-width: $widthLevelFive) { @content; }
+}
+
 .content-text-container {
 
   display: flex;
@@ -33,7 +66,8 @@
   background: #fff;
   padding: 1rem;
   box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.2);
-  
+
+
 }
 .caption {
   font-size: 1.125rem;
@@ -44,7 +78,12 @@
   display: inline-block;
   margin-top: 2rem;
   filter: grayscale(100%);
-  max-width: 200px;
+  @include widthLevel00 { max-width: 100px; }
+  @include widthLevel01 { max-width: 150px; }
+  @include widthLevel02 { max-width: 180px; }
+  @include widthLevel03 { max-width: 200px; }
+  @include widthLevel04 { max-width: 200px; }
+  @include widthLevel05 { max-width: 200px; }
 
 }
 .item .polaroid:before {
