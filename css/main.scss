@@ -231,8 +231,8 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'Red Hat Text', sans-serif;
   font-weight: 600;
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0px;
+  padding: 0px;
   width: auto;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
 }
@@ -244,8 +244,9 @@ h5 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.4rem;}
 
 
 
-
-
+.content-container h1, .content-container h2, .content-container h3, .content-container h4, .content-container h5 {
+  padding: 20px 0;
+} 
 .myPortrait {
 
   display: flex;
