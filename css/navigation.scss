@@ -6,6 +6,7 @@
     box-shadow: 5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
     -moz-box-shadow:  5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
     -webkit-box-shadow:  5px 17px 22px -8px rgba(9, 30, 66, 0.25), 0 0 5px rgba(9, 30, 66, 0.31);
+
 }
 
 @import url(https://fonts.googleapis.com/css?family=Caveat&display=swap);
@@ -94,6 +95,7 @@ button {
 }
 
 .navigation-container {
+
   @include widthLevel00 {display: none !important; }
   z-index: 999;
   min-width: 100vw;
@@ -216,6 +218,7 @@ button {
 
 
 .navigation-tours-container {
+
   @include widthLevel00 {display: none !important; }
   display: flex;
   position: fixed;
@@ -226,7 +229,9 @@ button {
   transition: height 1s cubic-bezier(0, 1, 0, 1);
   width: 100vw;
   min-width: 100vw;
+
   margin-top: 100px;
+
   height: 0px;
   background-color: white;
   &.active {
@@ -242,6 +247,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   @include widthLevel00 { display: none !important; }
   @include widthLevel00 { min-width: 310px; width: 310px; max-width: 310px; min-height: 100px;}
   @include widthLevel01 { min-width: 400px; width: 400px; max-width: 400px; min-height: 100px;}

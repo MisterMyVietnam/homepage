@@ -1,0 +1,250 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+@import url(https://fonts.googleapis.com/css?family=Karla);
+@import url(https://fonts.googleapis.com/css?family=Caveat&display=swap);
+
+html {
+  overflow: hidden;
+}
+body {
+
+  overflow: hidden;
+
+  margin: 0px !important;
+  padding: 0px !important;
+
+
+   overscroll-behavior-y: none;
+   font-family: 'Karla', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+
+   margin: 0 !important;
+   padding: 0 !important;
+
+}
+
+
+
+$widthLevelZero: 410px;
+$widthLevelOneLower: 411px;
+$widthLevelOneHigher: 767px;
+$widthLevelTwoLower: 768px;
+$widthLevelTwoHigher: 989px;
+$widthLevelThreeLower: 990px;
+$widthLevelThreeHigher: 1199px;
+$widthLevelFour: 1199px;
+$widthLevelFive: 1600px;
+
+@mixin widthLevel00 {
+  @media (max-width: $widthLevelZero) { @content; }
+}
+
+@mixin widthLevel01 {
+  @media (min-width:$widthLevelOneLower) and (max-width:$widthLevelOneHigher)  { @content; }
+}
+
+@mixin widthLevel02 {
+  @media (min-width:$widthLevelTwoLower) and (max-width:$widthLevelTwoHigher) { @content; }
+}
+@mixin widthLevel03 {
+  @media (min-width:$widthLevelThreeLower) and (max-width:$widthLevelThreeHigher) { @content; }
+}
+
+@mixin widthLevel04 {
+  @media (min-width: $widthLevelFour) { @content; }
+}
+
+@mixin widthLevel05 {
+  @media (min-width: $widthLevelFive) { @content; }
+}
+
+
+@mixin userSelect($select) {
+  user-select: $select;
+ -moz-user-select: $select;
+ -khtml-user-select: $select;
+ -webkit-user-select: $select;
+ -o-user-select: $select;
+}
+@mixin transitionAll($ms) {
+  -webkit-transition: all $ms ease;
+  -moz-transition: all $ms ease;
+  -ms-transition: all $ms ease;
+  -o-transition: all $ms ease;
+  transition: all $ms ease;
+}
+
+@mixin rotate($degrees) {
+  -moz-transform:rotate($degrees);
+  -webkit-transform:rotate($degrees);
+  -o-transform:rotate($degrees);
+  -ms-transform:rotate($degrees);
+}
+
+$dim-grey: #696969;
+$color-primary: rgba(0,0,0,0.5);
+$color-primary-hover: rgba(255, 255, 255, 1);
+$white-text: rgba(255, 255, 255, 1);
+$grey-text: #282828;
+$white-text-hover: rgba(20, 255, 200, 1);
+$test-color: rgba(20, 255, 200, 0.5);
+
+.first-view-container {
+
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.first-view-banner {
+
+  box-align: center;
+  width: 100vw;
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+#bannerPic {
+
+  @include widthLevel00 { height: 600px; }
+  @include widthLevel01 { height: 600px; }
+  @include widthLevel02 { height: 600px; }
+  @include widthLevel03 { height: 600px; }
+  @include widthLevel04 { height: 600px; }
+  @include widthLevel05 { height: 600px; }
+
+  box-align: center;
+
+}
+
+.content-container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+
+  text-align: center;
+
+}
+.content-container {
+
+  display: flex;
+  align-self: center;
+  justify-content: center;
+
+  @include widthLevel00 { width: 500px;  }
+  @include widthLevel01 { width: 575px;  }
+  @include widthLevel02 { width: 767px;  }
+  @include widthLevel03 { width: 990px;  }
+  @include widthLevel04 { width: 1140px; }
+  @include widthLevel05 { width: 1140px; }
+
+}
+
+.flex-direction-row {flex-direction: row;}
+.flex-direction-col {flex-direction: column;}
+
+.banner-image {
+
+  @include widthLevel00 { width: 300px; }
+  @include widthLevel01 { width: 400px; }
+  @include widthLevel02 { width: 700px; }
+  @include widthLevel03 { width: 800px; }
+  @include widthLevel04 { width: 800px; }
+  @include widthLevel05 { width: 800px; }
+
+  align-self: center;
+
+}
+
+.banner-text {
+  text-align: center;
+  width: auto;
+  align-self: center;
+  color: white;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+}
+
+.padding-mobile-10 {
+  @include widthLevel00 {padding: 10px;}
+  @include widthLevel01 {padding: 10px;}
+  @include widthLevel02 {white-space: nowrap; display: inline; padding: 0px;}
+  @include widthLevel03 {white-space: nowrap; display: inline; padding: 0px;}
+  @include widthLevel04 {white-space: nowrap; display: inline; padding: 0px;}
+  @include widthLevel05 {white-space: nowrap; display: inline; padding: 0px;}
+}
+
+.transition-opacity {
+   transition: opacity .4s ease-in-out;
+   -moz-transition: opacity .4s ease-in-out;
+   -webkit-transition: opacity .4s ease-in-out;
+   -ms-transition: opacity .4s ease-in-out;
+   -o-transition: opacity .4s ease-in-out;
+}
+
+/* Start of example */
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 14px;
+$max_font: 20px;
+
+$mod_1: 1.2; // mobile
+$mod_2: 1.5; // desktop
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+
+  line-height: 1.4;
+
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 600;
+  margin: 0px !important;
+  padding: 0px !important;
+  width: auto;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h1 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1.2rem;}
+h2 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1.1rem;}
+h3 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.7rem;}
+h4 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.6rem;}
+h5 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.4rem;}
