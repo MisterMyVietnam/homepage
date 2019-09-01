@@ -87,8 +87,10 @@ $white-text: rgba(255, 255, 255, 1);
 $grey-text: #282828;
 $white-text-hover: rgba(20, 255, 200, 1);
 $test-color: #00cfb0;
+$teaser-text-color-main: #e6e6e6;
+$teaser-text-color-secondary: #00cfb0;
 
-.teal-text {color: $test-color;}
+.teal-text {color: $teaser-text-color-secondary;}
 .first-view-container {
 
   width: 100vw;
@@ -102,8 +104,6 @@ $test-color: #00cfb0;
 .first-view-banner {
 
   box-align: center;
-  width: 100vw;
-
   justify-content: center;
   align-items: center;
 
@@ -112,7 +112,6 @@ $test-color: #00cfb0;
 #bannerPic {
 
   height: 700px;
-
   box-align: center;
 
 }
@@ -266,9 +265,16 @@ h5 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.4rem;}
   @include widthLevel05 { margin-left: 60%; width: 400px; height: 320px;margin-top: -308px;}
   z-index: 999;
 
+
+
 }
 
+.max-image-width {
+    max-width: 100%;
+  }
 .teaser-text-container {
+
+
 
   display: flex;
   flex-direction: column;
@@ -288,7 +294,8 @@ h5 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.4rem;}
 
 
   z-index: 999;
-  color: $light-grey;
+  color: $teaser-text-color-main;
+
 }
 
 .social-icon-container {
@@ -318,5 +325,5 @@ h5 {font-size: $mod_1*$mod_1*$mod_1*$mod_1 *0.4rem;}
 
 .readability-shadow {
 
-  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.6);
+  text-shadow: black 0px 0px 3em, black 0px 0px 1em;
 }
