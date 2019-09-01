@@ -1,44 +1,40 @@
 $(window).on('load', function() { setTimeout(function(){},500);
 //
-//   $('.after-scroll-top-banner-container').css( "display", "flex" );
+
+if ( ($(window).width() > 320) ) {
+  var scroll_position_teaser_text = 0 - 508 - ( $(window).scrollTop() ) ;
+} else {
+  var scroll_position_teaser_text = 0 - 708 - ( $(window).scrollTop() ) ;
+}
+  $('.teaser-text-container').css( "margin-top", scroll_position_teaser_text );
+  $('.myPortrait').css( "opacity", "1" );
+  $('.teaser-text-container').css( "opacity", "1" );
+
 //   $('.atzman-intro-container').css( "opacity", "1" );
 //   $('.navigation-bar').css( "opacity", "1" );
 //
 //
 //
+  setTimeout(function(){},500);
+
   $('body').css( "overflow", "auto");
   $('body').css( "overflow-x", "hidden");
   $('html').css( "overflow", "auto");
   $('html').css( "overflow-x", "hidden");
 
+  $(window).scroll(function () {
+
+    if ( ($(window).width() > 320) ) {
+      var scroll_position_teaser_text = 0 - 508 - ( $(window).scrollTop() ) ;
+    } else {
+      var scroll_position_teaser_text = 0 - 708 - ( $(window).scrollTop() ) ;
+    }
+    $('.teaser-text-container').css( "margin-top", scroll_position_teaser_text );
+
   });
 
-//   var scroll_position_banner = 200 - ( $(window).scrollTop()* (5/6) ) ;
-//
-//   $('.atzman-intro-container').css( "margin-top", scroll_position_banner );
-//
-//   if( (1000 - $(window).scrollTop()) > 0 ) {
-//     var scroll_position = 1000 - ( $(window).scrollTop() ) ;
-//   } else { var scroll_position = 0; }
-//
-//   $('.navigation-bar').css( "margin-top", scroll_position );
-//
-//   $(window).scroll(function () {
-//
-//     var scroll_position_banner = 200 - ( $(window).scrollTop() * (5/6) ) ;
-//
-//     $('.atzman-intro-container').css( "margin-top", scroll_position_banner );
-//
-//     if( (1000 - $(window).scrollTop()) > 0 ) {
-//       var scroll_position = 1000 - ( $(window).scrollTop() ) ;
-//     } else {
-//       var scroll_position = 0; }
-//
-//       $('.navigation-bar').css( "margin-top", scroll_position );
-//
-//   });
-// // });
-//
+});
+
 $("#tours").click(function(){
     $("#rotate").toggleClass("down");
     $(".navigation-container").toggleClass("active");
@@ -99,31 +95,3 @@ for(let i = 0; i < rippleElements.length; i++) {
     }, 900);
   }
 }
-//
-// // Get the modal
-// var modal = document.getElementById('myModal');
-//
-// // Get the image and insert it inside the modal - use its "alt" text as a caption
-//
-// var modalImg = document.getElementById("img01");
-// var captionText = document.getElementById("caption");
-//
-// function triggerModal(txt) {
-//
-//   modal.style.display = "block";
-//   modalImg.src = txt;
-//   // captionText.innerHTML = this.alt;
-//
-// }
-//
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("closeCustom")[0];
-//
-// // When the user clicks on <span> (x), close the modal
-// modal.onclick = function() {
-//   modal.style.display = "none";
-// }
-//
-// span.onclick = function() {
-// modal.style.display = "none";
-// }
